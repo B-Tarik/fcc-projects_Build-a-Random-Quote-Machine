@@ -1,7 +1,7 @@
 # Calculator
 ### About the project
 
-it's a freecodecamp project in the "Front End Libraries Projects" module, you have to build a JavaScript Calculator.  
+it's a freecodecamp project in the "Front End Libraries Projects" module, you have to build a Quote machine.  
 
 ### Tools used
 
@@ -13,22 +13,18 @@ it's a freecodecamp project in the "Front End Libraries Projects" module, you ha
 
 ### Link
 
-https://codepen.io/B-Tarik/full/axaRwL
+https://codepen.io/B-Tarik/full/drbXqO
 
 ### User stories
 
-1. My calculator should contain a clickable element containing an = (equal sign) with a corresponding ```id="equals"```.
-2. My calculator should contain ```10``` clickable elements containing one number each from ```0-9```, with the following corresponding IDs: ```id="zero"```, ```id="one"```, ```id="two"```, ```id="three"```, ```id="four"```, ```id="five```", ```id="six"```, ```id="seven"```, ```id="eight"```, and ```id="nine"```.
-3. My calculator should contain ```4``` clickable elements each containing one of the 4 primary mathematical operators with the following corresponding IDs: ```id="add"```, ```id="subtract"```, ```id="multiply"```, ```id="divide"```.
-4. My calculator should contain a clickable element containing a ```.``` (decimal point) symbol with a corresponding ```id="decimal"```.
-5. My calculator should contain a clickable element with an ```id="clear"```.
-6. My calculator should contain an element to display values with a corresponding ```id="display"```.
-7. At any time, pressing the clear button clears the input and output values, and returns the calculator to its initialized state; ```0``` should be shown in the element with the id of display.
-8. As I input numbers, I should be able to see my input in the element with the id of display.
-9. In any order, I should be able to add, subtract, multiply and divide a chain of numbers of any length, and when I hit ```=```, the correct result should be shown in the element with the id of display.
-10. When inputting numbers, my calculator should not allow a number to begin with multiple zeros.
-11. When the decimal element is clicked, a ```.``` should append to the currently displayed value; two ```.``` in one number should not be accepted.
-12. I should be able to perform any operation ```(+, -, *, /)``` on numbers containing decimal points.
-13. If 2 or more operators are entered consecutively, the operation performed should be the last operator entered.
-14. Pressing an operator immediately following ```=``` should start a new calculation that operates on the result of the previous evaluation.
-15. My calculator should have several decimal places of precision when it comes to rounding (note that there is no exact standard, but you should be able to handle calculations like 2 / 7 with reasonable precision to at least ```4``` decimal places).
+1. I can see a wrapper element with a corresponding ```id="quote-box"```.
+2. Within ```#quote-box```, I can see an element with a corresponding ```id="text"```.
+3. Within ```#quote-box```, I can see an element with a corresponding ```id="author"```.
+4. Within ```#quote-box```, I can see a clickable element with a corresponding ```id="new-quote"```.
+5. Within ```#quote-box```, I can see a clickable element with a corresponding ```id="tweet-quote"```.
+6. On first load, my quote machine displays a random quote in the element with ```id="text"```.
+7. On first load, my quote machine displays the random quote's author in the element with ```id="author"```.
+8. When the ```#new-quot``` button is clicked, my quote machine should fetch a new quote and display it in the ```#text``` element.
+9. My quote machine should fetch the new quote's author when the ```#new-quote``` button is clicked and display it in the ```#author``` element.
+10. I can tweet the current quote by clicking on the ```#tweet-quote``` a element. This a element should include the "twitter.com/intent/tweet" path in it's href attribute to tweet the current quote.
+11. The ```#quote-box``` wrapper element should be horizontally centered. Please run tests with browser's zoom level at 100% and page maximized.
