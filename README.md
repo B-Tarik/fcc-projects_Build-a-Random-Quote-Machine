@@ -1,4 +1,4 @@
-# Calculator
+# Quote Machine
 ### About the project
 
 it's a freecodecamp project in the "Front End Libraries Projects" module, you have to build a Quote machine.  
