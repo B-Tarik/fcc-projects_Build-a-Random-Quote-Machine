@@ -11,6 +11,7 @@ class App extends Component {
     index: 0
   }
   
+
   componentDidMount() {
     const quotes = 'https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json';
    
@@ -24,25 +25,42 @@ class App extends Component {
       .catch(console.warn);
   }
 
+
   getRandomQuote = async () => {
     const {index, quotes} = this.state;
     const randomQuote = quotes[index]
     const {quote, author} = randomQuote;
     const tweet = 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent(`"${quote}"${author}`)
+    
     await this.getImage(author)
     this.setState({randomQuote, tweet, index: (index+1)%(quotes.length-1)})
+    topbar.show()
   }
   
+  
   getImage = async author => {
+    let {image} = this.state;
     const wikiURL  = "https://en.wikipedia.org/w/api.php?action=query&formatversion=2&prop=pageimages&format=json&origin=*&titles=";
     const response = await fetch(wikiURL+author);
     const data = await response.json()
-    let image;
-    if (!data.query.pages[ 0 ].thumbnail) image = 'https://placeimg.com/500/680/nature'
-    else image = data.query.pages[0].thumbnail.source.replace( /[0-9]+px/, '500px')
-    this.setState({image})
+    let newImage;
+    
+    !data.query.pages[0].thumbnail 
+      ? newImage = 'https://placeimg.com/500/680/nature'
+      : newImage = data.query.pages[0].thumbnail.source.replace( /[0-9]+px/, '500px')
+    
+    newImage === image
+      ? setTimeout(() => topbar.hide(), 200)
+      : this.setState({image: newImage})
+    
+  }
+  
+  
+  handleLoad = () => {
+    topbar.hide();
   }
 
+  
   render() {
     const {randomQuote, tweet, image} = this.state;
     const {quote, author} = randomQuote;
@@ -50,7 +68,12 @@ class App extends Component {
     return (
         <React.Fragment>
           <div className="wrapper-b" style={{backgroundImage: `url(${image})`}}></div>
-          <div className="wrapper" style={{backgroundImage: `url(${image})`}}>
+          <div className="wrapper">
+            <img 
+              src={image} 
+              alt={author}
+              onLoad={this.handleLoad}
+              />
             <div id="quote-box">
               <div className="buttons">
                 <a className="button" id="tweet-quote" title="Tweet this quote!" target="_blank" href={tweet}>
