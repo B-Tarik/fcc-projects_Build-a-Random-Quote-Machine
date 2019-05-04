@@ -30,17 +30,23 @@ body {
   filter: blur(15px);
   background-blend-mode: multiply;
   background-color: #666666;
-  transition: .5s background;
 }
 
 .wrapper {
   display: flex;
   max-width: 700px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 10%;
-  transition: .6s background;
 }
+
+img {
+  width: 100%;
+  min-width: 300px;
+  max-width: 700px;
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 #quote-box {
   width: 100vw;
@@ -55,17 +61,17 @@ body {
   flex-direction: column-reverse;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 35%, rgba(0, 0, 0, 0.60) 100%);
   text-shadow: 1px 1px 1px #1b1b1b;
-  transition: .5s all;
   
   .quote-text {
-    text-align:center;
-    font-size: 19px;
+    text-align: center;
+    font-size: 24px;
     letter-spacing: 1px;
     word-spacing: 3px;
-    line-height: 28px;
-    background: #5f5f5f75;
+    line-height: 33px;
+    background: #00000075;
     padding: 5px;
     border-radius: 5px;
+    color: white;
     
     i{
       font-size:1.0em;
@@ -86,7 +92,7 @@ body {
       border:none;
       border-radius:3px;
       color:#fff;
-      background-color:#76c2ff;
+      background-color:#316fb0;
       outline:none;
       font-size:0.85em;
       padding: 8px 18px 6px 18px;
@@ -119,5 +125,5 @@ body {
 
 a {
   text-decoration: none;
-  color: #72d2ff;
+  color: #44c3ff;
 }
